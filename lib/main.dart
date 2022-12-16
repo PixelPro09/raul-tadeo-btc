@@ -33,16 +33,11 @@ class BTCList extends StatefulWidget {
 }
 
 class _BTCListState extends State<BTCList> {
-  // text field
   final TextEditingController _textFieldController = TextEditingController();
   late final Future<List<String>> _initialList;
-  //late AppDb _db;
   @override
   void initState() {
     super.initState();
-
-    //_db = AppDb();
-
     _initialList = _controlador.launchData();
   }
   @override
@@ -80,7 +75,7 @@ class _BTCListState extends State<BTCList> {
             ),
             Padding(
               padding: EdgeInsets.only(top: 16),
-              child: Text('Awaiting result...'),
+              child: Text('Esperando resultado...'),
             ),
           ];
         }
@@ -88,7 +83,6 @@ class _BTCListState extends State<BTCList> {
         return Scaffold(
           appBar: AppBar(title: const Text('Lista BTC')),
           body: ListView(children: _getItems()),
-          // add items to the to-do list
           floatingActionButton: FloatingActionButton(
               onPressed: () => _displayDialog(context),
               tooltip: 'Añadir Item',

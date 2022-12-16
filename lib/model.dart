@@ -32,8 +32,6 @@ class BTCList{
 
   writeFile(String text) async {
     final file = await _localFile;
-
-    // Write the file
     return file.writeAsString(text+"\r\n", mode: FileMode.append);
   }
 

@@ -127,11 +127,11 @@ class $EventsTable extends Events with TableInfo<$EventsTable, Event> {
       requiredDuringInsert: false);
   final VerificationMeta _descMeta = const VerificationMeta('desc');
   @override
-  late final GeneratedColumn<String> desc = GeneratedColumn<String>(
+  late final GeneratedColumn<String> compraoventa = GeneratedColumn<String>(
       'desc', aliasedName, false,
       type: DriftSqlType.string, requiredDuringInsert: true);
   @override
-  List<GeneratedColumn> get $columns => [id, desc];
+  List<GeneratedColumn> get $columns => [id, compraoventa];
   @override
   String get aliasedName => _alias ?? 'events';
   @override
@@ -146,7 +146,7 @@ class $EventsTable extends Events with TableInfo<$EventsTable, Event> {
     }
     if (data.containsKey('desc')) {
       context.handle(
-          _descMeta, desc.isAcceptableOrUnknown(data['desc']!, _descMeta));
+          _descMeta, compraoventa.isAcceptableOrUnknown(data['desc']!, _descMeta));
     } else if (isInserting) {
       context.missing(_descMeta);
     }
