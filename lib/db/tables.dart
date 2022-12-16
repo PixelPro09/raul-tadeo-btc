@@ -6,4 +6,5 @@ class Events extends Table{
   TextColumn get datadelaordre => text()();
   IntColumn get cantidad => integer()();
   IntColumn get comisio => integer()();
+
 }
