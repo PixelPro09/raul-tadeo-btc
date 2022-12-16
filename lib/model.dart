@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
-import 'event_controller.dart';
+import 'orden_controller.dart';
 import 'db/database.dart';
 import 'package:drift/drift.dart';
 import 'dart:io';
@@ -39,7 +39,7 @@ class BTCList{
     try {
       _db = AppDb();
       List<String> _lista = <String>[];
-      List<Event> events = await _db.getEvents();
+      List<Event> events = await _db.getOrdens();
       for(var event in events){
         _lista.add(event.desc);
       }

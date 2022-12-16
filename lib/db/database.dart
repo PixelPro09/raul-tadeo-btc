@@ -17,14 +17,14 @@ LazyDatabase _openConnection(){
   });
 }
 
-@DriftDatabase(tables: [Events])
+@DriftDatabase(tables: [Ordens])
 class AppDb extends _$AppDb{
   AppDb() : super(_openConnection());
 
   @override
   int get schemaVersion => 1;
 
-  Future<List<Event>> getEvents() async{
+  Future<List<Event>> getOrdens() async{
     return await select(events).get();
   }
 

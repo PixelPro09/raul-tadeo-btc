@@ -114,7 +114,7 @@ class EventsCompanion extends UpdateCompanion<Event> {
   }
 }
 
-class $EventsTable extends Events with TableInfo<$EventsTable, Event> {
+class $EventsTable extends Ordens with TableInfo<$EventsTable, Event> {
   @override
   final GeneratedDatabase attachedDatabase;
   final String? _alias;

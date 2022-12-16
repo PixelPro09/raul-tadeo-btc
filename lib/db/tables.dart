@@ -1,6 +1,6 @@
 import 'package:drift/drift.dart';
 
-class Events extends Table{
+class Ordens extends Table{
   IntColumn get id => integer().autoIncrement()();
   TextColumn get compraoventa => text()();
   TextColumn get datadelaordre => text()();
