@@ -7,15 +7,15 @@ import 'db/database.dart';
 import 'package:drift/drift.dart';
 import 'dart:io';
 
-class TodoList{
+class BTCList{
 
-  static final TodoList _modelo = TodoList._internal();
+  static final BTCList _modelo = BTCList._internal();
 
-  factory TodoList() {
+  factory BTCList() {
     return _modelo;
   }
 
-  TodoList._internal():
+  BTCList._internal():
         _todoList = <String>[];
 
   List<String> _todoList;
@@ -41,11 +41,6 @@ class TodoList{
     try {
       _db = AppDb();
       List<String> _lista = <String>[];
-      // final file = await _localFile;
-      // Stream<String> lines = file.openRead().transform(utf8.decoder).transform(LineSplitter());
-      // await for (var line in lines) {
-      //   _lista.add(line);
-      // }
       List<Event> events = await _db.getEvents();
       for(var event in events){
         _lista.add(event.desc);
@@ -74,7 +69,7 @@ class TodoList{
   List<String> get todoList => _todoList;
 }
 
-////////////////////////////////////////////////////////////////////////////////
+
 late AppDb _db;
 
 insertDb(String string){

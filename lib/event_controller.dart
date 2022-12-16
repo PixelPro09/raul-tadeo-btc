@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'model.dart';
 
-class ToDoController{
+class BTCController{
 
   void addToModelList(String string){
-    TodoList().addToList(string);
+    BTCList().addToList(string);
   }
   getList(){
-    return TodoList().todoList;
+    return BTCList().todoList;
   }
 
   launchData(){
-    return TodoList().readFile();
+    return BTCList().readFile();
   }
 
   setList(Future<List<String>> list){
-    TodoList().setList(list);
+    BTCList().setList(list);
   }
 
   closeDb(){
-    TodoList().close();
+    BTCList().close();
   }
 }

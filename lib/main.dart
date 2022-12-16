@@ -7,39 +7,38 @@ import 'db/database.dart';
 
 
 void main() {
-  runApp(Todo());
+  runApp(BTC());
 }
 
-class Todo extends StatelessWidget {
+class BTC extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'jordi_pascual_sanchez_todo',
+      title: 'raul-tadeo-btc',
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
       routes: {
-        '/': (context) => TodoList(),
+        '/': (context) => BTCList(),
       },
     );
   }
 }
 
-final ToDoController _controlador = ToDoController();
+final BTCController _controlador = BTCController();
 
-class TodoList extends StatefulWidget {
+class BTCList extends StatefulWidget {
   @override
-  _TodoListState createState() => _TodoListState();
+  _BTCListState createState() => _BTCListState();
 }
 
-class _TodoListState extends State<TodoList> {
+class _BTCListState extends State<BTCList> {
   // text field
   final TextEditingController _textFieldController = TextEditingController();
   late final Future<List<String>> _initialList;
   //late AppDb _db;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
 
     //_db = AppDb();
@@ -87,28 +86,18 @@ class _TodoListState extends State<TodoList> {
         }
         _controlador.setList(_initialList);
         return Scaffold(
-          appBar: AppBar(title: const Text('To-Do List')),
+          appBar: AppBar(title: const Text('Lista BTC')),
           body: ListView(children: _getItems()),
           // add items to the to-do list
           floatingActionButton: FloatingActionButton(
               onPressed: () => _displayDialog(context),
-              tooltip: 'Add Item',
+              tooltip: 'Añadir Item',
               child: Icon(Icons.add)),
         );
       },
     );
   }
 
-  // // app layout
-  // return Scaffold(
-  //   appBar: AppBar(title: const Text('To-Do List')),
-  //   body: ListView(children: _getItems()),
-  //   // add items to the to-do list
-  //   floatingActionButton: FloatingActionButton(
-  //       onPressed: () => _displayDialog(context),
-  //       tooltip: 'Add Item',
-  //       child: Icon(Icons.add)),
-  // );
   void _addTodoItem(String title) {
     setState(() {
       _controlador.addToModelList(_textFieldController.text);
@@ -116,7 +105,7 @@ class _TodoListState extends State<TodoList> {
     _textFieldController.clear();
   }
 
-  Widget _buildTodoItem(String title) {
+  Widget _buildBTCItem(String title) {
     return ListTile(title: Text(title));
   }
 
@@ -126,15 +115,15 @@ class _TodoListState extends State<TodoList> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: const Text('Add a task to your list'),
+            title: const Text('Añadir Compra/Venta'),
             content: TextField(
               controller: _textFieldController,
-              decoration: const InputDecoration(hintText: 'Enter task here'),
+              decoration: const InputDecoration(hintText: 'Tipo: C/V'),
             ),
             actions: <Widget>[
               // add button
               TextButton(
-                child: const Text('ADD'),
+                child: const Text('Añadir'),
                 onPressed: () {
                   // final entity = EventsCompanion(
                   //   desc: Value(_textFieldController.text),
@@ -148,7 +137,7 @@ class _TodoListState extends State<TodoList> {
               ),
               // cancel button
               TextButton(
-                child: const Text('CANCEL'),
+                child: const Text('Cancelar'),
                 onPressed: () {
                   Navigator.of(context).pop();
                 },
@@ -160,10 +149,10 @@ class _TodoListState extends State<TodoList> {
 
   // iterates through our to3do list titles.
   List<Widget> _getItems() {
-    final List<Widget> _todoWidgets = <Widget>[];
+    final List<Widget> _btcWidgets = <Widget>[];
     for (String title in _controlador.getList()) {
-      _todoWidgets.add(_buildTodoItem(title));
+      _btcWidgets.add(_buildBTCItem(title));
     }
-    return _todoWidgets;
+    return _btcWidgets;
   }
 }
