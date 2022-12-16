@@ -110,7 +110,6 @@ class _BTCListState extends State<BTCList> {
   }
 
   Future<AlertDialog> _displayDialog(BuildContext context) async {
-    // alter the app state to show a dialog
     return showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -120,22 +119,16 @@ class _BTCListState extends State<BTCList> {
               controller: _textFieldController,
               decoration: const InputDecoration(hintText: 'Tipo: C/V'),
             ),
+
             actions: <Widget>[
               // add button
               TextButton(
                 child: const Text('Añadir'),
                 onPressed: () {
-                  // final entity = EventsCompanion(
-                  //   desc: Value(_textFieldController.text),
-                  // );
-
-                  //_db.insertEvent(entity);
-
                   Navigator.of(context).pop();
                   _addTodoItem(_textFieldController.text);
                 },
               ),
-              // cancel button
               TextButton(
                 child: const Text('Cancelar'),
                 onPressed: () {
@@ -147,7 +140,6 @@ class _BTCListState extends State<BTCList> {
         }) as Future<AlertDialog>;
   }
 
-  // iterates through our to3do list titles.
   List<Widget> _getItems() {
     final List<Widget> _btcWidgets = <Widget>[];
     for (String title in _controlador.getList()) {
